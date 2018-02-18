@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let x = parseInt(prompt("Введіть x:"));
+    let y = parseInt(prompt("Введіть y:"));
+    let z = parseInt(prompt("Введіть z:"));
+    let k = parseInt(prompt("Введіть k:"));
+
+    let v;
+
+    switch (k) {
+        case 10:
+            document.write("Виконалася умова 1");
+            v = Math.max(x, y, z);
+            break;
+        case 20:
+            document.write("Виконалася умова 2");
+            v = (Math.min(x, y, z) / k);
+            break;
+        case 30:
+            document.write("Виконалася умова 3");
+            v = (Math.min(x, y, z) / k);
+            break;
+        default:
+            document.write("Виконалася умова default");
+            v = (x * x + y * y + z * z) / (k * k);
+            break;
+
+    }
+
+    document.write("<br> Результат: " + v.toFixed(3));
+</script>
+
+</body>
+</html>

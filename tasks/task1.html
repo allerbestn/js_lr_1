@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let x = parseInt(prompt("Введіть x:"));
+    let a = parseInt(prompt("Введіть а:"));
+    let c = parseInt(prompt("Введіть c:"));
+
+    let f1 = (Math.sqrt(Math.exp(x) - Math.cos(Math.pow(x, 2) * Math.pow(a, 5))) +
+    Math.atan(a - Math.pow(x, 5)));
+    let f2 = Math.sqrt(Math.abs(a + x * Math.pow(c, 4)));
+    document.write("Результат: " + (f1 / f2).toFixed(3));
+</script>
+
+</body>
+</html>

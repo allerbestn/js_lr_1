@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let n = parseInt(prompt("Введіть розмірність матриці:"));
+    //let n = 5;
+
+    while (true) {
+        if (n > 15) {
+            n = parseInt(prompt("Введіть розмірність матриці < 15"));
+        } else {
+            break;
+        }
+    }
+
+    let createMatrix = function() {
+        let arr = new Array(n);
+        for (let i = 0; i < arr.length; i++){
+            arr[i] = new Array(n);
+            for (let j = 0; j < arr[i].length; j++){
+                arr[i][j] = Math.round(Math.random() * 20);
+            }
+        }
+        return arr;
+    };
+
+    let getMaxValueMatrix = function(matrix) {
+        let max = matrix[0][0];
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < i; j++) {
+                if (matrix[i][j] > max) {
+                    max = matrix[i][j];
+                }
+            }
+        }
+        return max;
+    };
+
+    let printMatrix = function(matrix) {
+        for (let i = 0; i < matrix.length; i++) {
+            document.write("<table>");
+            document.write("<tr>");
+            for (let j = 0; j < matrix[i].length; j++) {
+                document.write("<td>");
+                document.write(matrix[i][j]);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+            document.write("</table>");
+        }
+    };
+
+    let buildMatrixX = function(matrix, maxValue) {
+        let matrixX = createMatrix();
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < i; j++) {
+                matrixX[i][j] = matrix[i][j] * maxValue;
+            }
+        }
+
+        return matrixX
+    };
+
+    let matrixA = createMatrix();
+    let matrixB = createMatrix();
+    let maxMatrixB = getMaxValueMatrix(matrixB);
+    let matrixX = buildMatrixX(matrixA, maxMatrixB);
+
+    document.write("matrix A <br>"); printMatrix(matrixA);
+    document.write("matrix B <br>"); printMatrix(matrixB);
+    document.write("Matrix X <br>"); printMatrix(matrixX);
+
+</script>
+
+<style>
+    td {
+        height: 20px;
+        width: 30px;
+        padding: 5px;
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+
+</body>
+</html>

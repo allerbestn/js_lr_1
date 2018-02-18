@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let x = parseInt(prompt("Введіть x:"));
+    let y = parseInt(prompt("Введіть y:"));
+    let z = parseInt(prompt("Введіть z:"));
+    let a = parseInt(prompt("Введіть a:"));
+    let b = parseInt(prompt("Введіть b:"));
+
+    let c = parseInt(prompt("Введіть c:"));
+    let d = parseInt(prompt("Введіть d:"));
+
+    let v;
+
+    if ((x >= c && x <= d) && (y >= c && y <= d) && (z >= c && z <= d)) {
+        v = Math.max(z, y, z);
+    } else if ((x < c && x > d) && (x < c && x > d) && (x < c && x > d)) {
+        v = Math.min(z, y, z)
+    } else {
+        v = (a + b) / 2;
+    }
+
+    document.write("Результат: " + v);
+
+</script>
+
+</body>
+</html>

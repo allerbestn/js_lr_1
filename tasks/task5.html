@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let n = parseInt(prompt("Введіть розмірність масиву:"));
+    let a = parseInt(prompt("Введіть a:"));
+    let b = parseInt(prompt("Введіть b:"));
+
+    // let n = 20;
+    // let a = 100;
+    // let b = 150;
+
+    let lessA = 0;
+    let moreB = 1;
+
+    while (true) {
+        if (a > b) {
+            b = parseInt(prompt("Введіть b < a"));
+        } else {
+            break;
+        }
+    }
+
+    document.write("a = " + a + "<br>");
+    document.write("b = " + b + "<br>");
+    document.write("Масив: <br>");
+    let arr = new Array(n);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = Math.round(Math.random() * 200);
+        document.write(arr[i] + "<br>");
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < a) {
+            lessA += arr[i];
+        }
+        if (arr[i] > b) {
+            moreB *= arr[i];
+        }
+    }
+
+    let max = arr[a];
+    let min = arr[b];
+
+    for (let i = a; i < b; i++) {
+        //document.write("++" + arr[i] + "<br>");
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+
+    if (max === undefined) {
+        max = "Немає максимального значення на X(i)Є[a,b]";
+    }
+
+    if (min === undefined) {
+        min = "Немає максимального значення на X(i)Є[a,b]";
+    }
+
+    document.write(`Сумма всіх X(i) < ${a} = ${lessA}<br>`);
+    document.write(`Добуток всіх X(i) > ${b} = ${moreB}<br>`);
+
+    document.write("max X(i)Є[a,b] = " + max + "<br>");
+    document.write("min  = " + min + "<br>");
+
+</script>
+
+</body>
+</html>

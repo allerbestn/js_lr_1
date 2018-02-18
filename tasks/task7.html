@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    let text = prompt("Введіть рядок тексту:");
+    document.write("<strong>Початковий рядок </strong><br>" + text + "<br>");
+
+    let subStrArray = text.split(" ");
+    let tmp = [];
+
+    for (let i = 0; i < subStrArray.length; i++) {
+        for (let j = 0; j < subStrArray[i].length; j++) {
+            if (subStrArray[i].charAt(j) === subStrArray[i].charAt(j+1)) {
+                tmp.push(subStrArray[i]);
+                delete subStrArray[i];
+                break;
+            }
+        }
+    }
+
+    document.write("<strong>Рядок слів з подвоєнням</strong><br>" + tmp + "<br>");
+    document.write("<strong>Рядок слів без подвоєння</strong><br>");
+    for (let i = 0; i < subStrArray.length; i++) {
+        if (subStrArray[i] !== undefined) {
+            document.write(subStrArray[i] + " ");
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+     let n1 = parseInt(prompt("Введіть розмірність масиву A:"));
+     let n2 = parseInt(prompt("Введіть розмірність масиву B:"));
+
+    let arrA = new Array(n1);
+    let arrB = new Array(n2);
+
+    document.write("<strong>Масив А</strong><br>");
+    for (let i = 0; i < arrA.length; i++) {
+        arrA[i] = Math.round(Math.random() * 20);
+        document.write(arrA[i] + "<br>");
+    }
+
+    document.write("<strong>Масив B</strong><br>");
+    for (let i = 0; i < arrB.length; i++) {
+        arrB[i] = Math.round(Math.random() * 20);
+        document.write(arrB[i] + "<br>");
+    }
+
+    let arrayMerge = function(arrA, arrB) {
+        return arrA.concat(arrB);
+    };
+
+    let uniqueArray =  function(arr) {
+        let obj = {};
+        for (let i = 0; i < arr.length; i++) {
+            let str = arr[i];
+            obj[str] = true;
+        }
+        return Object.keys(obj);
+    };
+
+    let arraySum = function(array) {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += parseInt(array[i]);
+        }
+        return sum;
+    };
+
+    let arrC = arrayMerge(arrA, arrB);
+    let arrUniqueC = uniqueArray(arrC);
+
+    document.write("<strong>Обєднання масивів A і B</strong><br>");
+    for (let i = 0; i < arrC.length; i++) {
+        document.write(arrC[i] + "<br>");
+    }
+
+    let arrayMergeSum = arraySum(arrC);
+    let arrayMergeUniqueSum = arraySum(arrUniqueC);
+
+    document.write("<strong>Сума елементів масиву (A U B – множина елементів) = </strong>" + arrayMergeSum + "<br>");
+    document.write("<strong>Сума елементів масиву (A і B взятих по одному разу) = </strong>" + arrayMergeUniqueSum);
+
+</script>
+
+</body>
+</html>

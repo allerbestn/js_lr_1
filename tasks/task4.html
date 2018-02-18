@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let x = parseInt(prompt("Введіть x:"));
+    let a = parseInt(prompt("Введіть a:"));
+    let esp = parseInt(prompt("Введіть точність esp:"));
+
+    let k  = 0;
+    let fn = stax = st3 = 1;
+    let d = Math.sin(1) / 2;
+    let s = d;
+
+    while(Math.abs(d) > esp) {
+        k++;
+        fn *= k;
+        st3 *= 3;
+        stax *= (a + x);
+        d = Math.sin(stax) / (st3 + fn);
+        s += d;
+    }
+
+    document.write("Результат: " + s);
+    document.write("</br>Кількість доданків: " + k);
+</script>
+
+</body>
+</html>
